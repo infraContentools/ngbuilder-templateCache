@@ -1,6 +1,6 @@
 {
   "name": "ngbuilder-templatecache",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Plugin for ngbuilder that injects HTML templates into JS",
   "main": "templateCache.js",
   "scripts": {
