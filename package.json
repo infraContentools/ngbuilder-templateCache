@@ -22,6 +22,7 @@
   "homepage": "https://github.com/infraContentools/ngbuilder-templateCache",
   "dependencies": {
     "gulp-templatecache": "0.0.3",
-    "multipipe": "^0.1.1"
+    "multipipe": "^0.1.1",
+    "vinyl-fs": "^0.3.7"
   }
 }

@@ -7,12 +7,12 @@
  */
 
 module.exports = (function() {
-	var gulp, templateCache, multipipe, path, htmlMinifyOptions, _initialized;
+	var vinyl, templateCache, multipipe, path, htmlMinifyOptions, _initialized;
 
 	function init() {
 		if (_initialized) return;
 
-		gulp = require('gulp');
+		vinyl = require('vinyl-fs');
 		templateCache = require('gulp-templatecache');
 		multipipe = require('multipipe');
 		path = require('path');
@@ -34,7 +34,7 @@ module.exports = (function() {
 			outputPath = path.join(modulePath, '/src');
 
 		var pipe = multipipe(
-			gulp.src(path.join(basePath, '/**/*.html')),
+			vinyl.src(path.join(basePath, '/**/*.html')),
 			templateCache({
 				output: 'views.js',
 				strip: basePath,
@@ -47,7 +47,7 @@ module.exports = (function() {
 		pipe.on('end', next);
 		pipe.on('finish', next);
 
-		pipe.pipe(gulp.dest(outputPath));
+		pipe.pipe(vinyl.dest(outputPath));
 	};
 
 	return {
