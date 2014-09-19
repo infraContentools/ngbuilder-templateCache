@@ -45,14 +45,13 @@ module.exports = (function() {
 
 		pipe.on('error', next);
 		pipe.on('end', next);
-		pipe.on('finish', next);
 
 		pipe.pipe(gulp.dest(outputPath));
 	};
 
 	return {
 		name: 'templateCache',
-		watcher: '/**/*.html',
+		watcher: 'views/**/*.html',
 		run: run
 	};
 })();
