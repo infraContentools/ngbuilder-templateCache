@@ -39,7 +39,8 @@ module.exports = (function() {
 				output: 'views.js',
 				strip: basePath,
 				moduleName: moduleName,
-				minify: htmlMinifyOptions
+				minify: htmlMinifyOptions,
+				prepend: options.prefix || ''
 			})
 		);
 
