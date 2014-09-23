@@ -44,11 +44,17 @@ module.exports = (function() {
 			})
 		);
 
-		pipe.on('error', next);
-		pipe.on('end', next);
+		function done(err) {
+			pipe.removeListener('error', done);
+			pipe.removeListener('end', done);
+			next(err);
+		}
+
+		pipe.on('error', done);
+		pipe.on('end', done);
 
 		pipe.pipe(vinyl.dest(outputPath));
-	};
+	}
 
 	return {
 		name: 'templateCache',
