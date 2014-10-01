@@ -31,7 +31,9 @@ module.exports = (function() {
 		var modulePath = context.modulePath,
 			moduleName = context.moduleName,
 			basePath = path.join(modulePath, 'views'),
-			outputPath = path.join(modulePath, '/src');
+			outputPath = options.outputPath || '/src';
+
+		outputPath = path.join(modulePath, outputPath);
 
 		var pipe = multipipe(
 			vinyl.src(path.join(basePath, '/**/*.html')),
